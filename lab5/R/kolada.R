@@ -1,6 +1,6 @@
 #' A class to collect data from kolada
 #' 
-#' @import httpr
+#' @import httr
 #' @import jsonlite
 #' @field municipal character: A given municipality
 #' @export kolada
@@ -12,6 +12,7 @@ kolada <- setRefClass("kolada",
                           municipal <<- municipal
                         },
                         get_id = function(){
+                          'Initialize the values'
                           path_mu = "http://api.kolada.se/v2/municipality?"
                           api_raw_ret <- httr::GET(url = path_mu,
                                                    query = list(title=municipal))
@@ -21,6 +22,7 @@ kolada <- setRefClass("kolada",
                           return(id)
                         },
                         get_school = function(){
+                          'Get the school list with given municipality'
                           path_sk <- "http://api.kolada.se/v2/ou?"
                           id <- get_id()
                           api_raw_ret <- httr::GET(url = path_sk,
