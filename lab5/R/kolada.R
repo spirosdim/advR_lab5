@@ -1,3 +1,10 @@
+#' A class to collect data from kolada
+#' 
+#' @import httpr
+#' @import jsonlite
+#' @field municipal character: A given municipality
+#' @export kolada
+#' @exportClass kolada
 kolada <- setRefClass("kolada",
                       field = list(municipal="character"),
                       methods = list(
