@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2019-10-01
 Author: Who wrote it
 Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Description: More about what it does.
 License: MIT License+ file LICENSE
 RoxygenNote: 6.1.1
 Encoding: UTF-8

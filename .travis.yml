@@ -1,0 +1,7 @@
+
+language: r
+cache: packages
+install:
+  - Rscript -e 'install.packages(c("devtools","roxygen2","testthat","httr","jsonlite"));devtools::install_deps("lab5")'
+script:
+  - Rscript -e 'devtools::check("lab5")'
