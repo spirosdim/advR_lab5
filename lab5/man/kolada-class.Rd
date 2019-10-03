@@ -8,17 +8,13 @@
 \description{
 A class to collect data from kolada
 }
-\section{Fields}{
-
-\describe{
-\item{\code{municipal}}{character: A given municipality}
-}}
-
 \section{Methods}{
 
 \describe{
-\item{\code{get_id()}}{Initialize the values}
+\item{\code{get_id(municipal)}}{Get the id of a municipality}
 
-\item{\code{get_school()}}{Get the school list with given municipality}
+\item{\code{get_municipality_list()}}{Get the complete municipality list}
+
+\item{\code{get_skola(municipal)}}{Get the school list in a municipality}
 }}
 
