@@ -11,9 +11,11 @@ A class to collect data from kolada
 \section{Methods}{
 
 \describe{
-\item{\code{get_id(municipal)}}{Get the id of a municipality}
+\item{\code{get_id(Mname)}}{Get the id of a municipality}
 
 \item{\code{get_municipality_list()}}{Get the complete municipality list}
+
+\item{\code{get_numb(Mname, op)}}{Get the statistics}
 
 \item{\code{get_skola(municipal)}}{Get the school list in a municipality}
 }}

@@ -36,7 +36,7 @@ kolada <- setRefClass("kolada",
                           return(sk_list)
                         },
                         get_numb = function(Mname, op){
-                          'Get the complete municipality list'
+                          'Get the statistics'
                           #1 dead
                           #2 moving net
                           #3 born / 1000
