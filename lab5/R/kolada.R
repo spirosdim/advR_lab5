@@ -19,6 +19,7 @@ kolada <- setRefClass("kolada",
                         },
                         get_id = function(Mname){
                           'Get the id of a municipality'
+                          if (!(Mname %in% get_municipality_list())) stop("municipality name is wrong.")
                           mlist <- get_municipality_list()
                           id <- mlist$id[mlist$municipality==Mname]
                           return(id)
@@ -41,7 +42,8 @@ kolada <- setRefClass("kolada",
                           #2 moving net
                           #3 born / 1000
                           #4 born numb
-                          try(if (!(op %in% c(1:4))) stop("not one of the provided options"))
+                          if (!(op %in% c(1:4))) stop("not one of the provided options")
+                          if (!(Mname %in% get_municipality_list())) stop("municipality name is wrong.")
                           
                           start_path <- "http://api.kolada.se/v2/data/kpi"
                           if (op==1){
