@@ -7,14 +7,20 @@
 kolada <- setRefClass("kolada",
                       field = list(),
                       methods = list(
-                        get_id = function(municipal){
-                          'Get the id of a municipality'
-                          path_mu = "http://api.kolada.se/v2/municipality?"
-                          api_raw_ret <- httr::GET(url = path_mu,
-                                                   query = list(title=municipal))
+                        get_municipality_list = function(){
+                          'Get the complete municipality list'
+                          path_get_mu <- "http://api.kolada.se/v2/municipality"
+                          api_raw_ret <- httr::GET(url = path_get_mu)
                           api_text <- httr::content(api_raw_ret, as = "text", encoding = "UTF-8")
-                          id_json <- jsonlite::fromJSON(api_text,flatten = TRUE)
-                          id <- id_json$values$id
+                          municipality_list_raw <- data.frame(jsonlite::fromJSON(api_text,flatten = TRUE))
+                          municipality_list <- municipality_list_raw[,c(2,3)]
+                          colnames(municipality_list) = c('id','municipality')
+                          return(municipality_list)
+                        },
+                        get_id = function(Mname){
+                          'Get the id of a municipality'
+                          mlist <- get_municipality_list()
+                          id <- mlist$id[mlist$municipality==Mname]
                           return(id)
                         },
                         get_skola = function(municipal){
@@ -28,16 +34,8 @@ kolada <- setRefClass("kolada",
                           sk_list <- skola_json['values.title']
                           colnames(sk_list) <- c('school')
                           return(sk_list)
-                        },
-                        get_municipality_list = function(){
-                          'Get the complete municipality list'
-                          path_get_mu <- "http://api.kolada.se/v2/municipality"
-                          api_raw_ret <- httr::GET(url = path_get_mu)
-                          api_text <- httr::content(api_raw_ret, as = "text", encoding = "UTF-8")
-                          municipality_list_raw <- data.frame(jsonlite::fromJSON(api_text,flatten = TRUE))
-                          municipality_list <- municipality_list_raw[,c(2,3)]
-                          colnames(municipality_list) = c('id','municipality')
-                          return(municipality_list)
                         }
+                        
+                        
                       )
 )
