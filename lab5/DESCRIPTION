@@ -9,6 +9,6 @@ Description: This pachage creates a Reference Class to fetch data from kolada's 
 License: MIT License+ file LICENSE
 RoxygenNote: 6.1.1
 Encoding: UTF-8
-Imports: httr, jsonlite
-Suggests: knitr, rmarkdown
+Imports: httr, jsonlite, rmarkdown, methods
+Suggests: knitr, testthat
 VignetteBuilder: knitr

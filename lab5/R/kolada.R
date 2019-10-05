@@ -2,6 +2,7 @@
 #' 
 #' @import httr
 #' @import jsonlite
+#' @import methods
 #' @export kolada
 #' @exportClass kolada
 kolada <- setRefClass("kolada",
