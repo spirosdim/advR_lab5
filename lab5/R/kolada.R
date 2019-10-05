@@ -26,10 +26,12 @@ kolada <- setRefClass("kolada",
                           id <- mlist$id[mlist$municipality==Mname]
                           return(id)
                         },
-                        get_skola = function(municipal){
+                        get_skola = function(Mname){
                           'Get the school list in a municipality'
+                          mulist <- get_municipality_list()$municipality
+                          if (!(Mname %in% mulist)) stop("municipality name is wrong.")
                           path_sk <- "http://api.kolada.se/v2/ou?"
-                          id <- get_id(municipal)
+                          id <- get_id(Mname)
                           api_raw_ret <- httr::GET(url = path_sk,
                                                    query = list(municipality=id,title="skola"))
                           api_text <- httr::content(api_raw_ret, as = "text", encoding = "UTF-8")
@@ -38,7 +40,7 @@ kolada <- setRefClass("kolada",
                           colnames(sk_list) <- c('school')
                           return(sk_list)
                         },
-                        get_numb = function(Mname, op){
+                        get_stats = function(Mname, op){
                           'Get the statistics'
                           #1 dead
                           #2 moving net
