@@ -1,0 +1,52 @@
+---
+title: "kolada"
+author: "Group 19"
+date: "05/10/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{kolada}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
+## Package lab5
+This is the package that download data from kolada using its API. 
+
+## Install package
+```{r }
+devtools::install_github("spirosdim/advR_lab5", subdir="lab5")
+```
+## Create object
+```{r }
+a <- kolada$new()
+```
+
+## Methods in the class
+
+### get_municipality_list: Get the list of municipalities in kolada
+```{r }
+a$get_municipality_list()
+```
+
+### get_id: Get the id of a particular municipality
+Input: The name of the municipality
+```{r }
+a$get_id('Linköping')
+```
+
+### get_skola: Get the list of schools in a particular municipality
+Input: The name of the municipality
+```{r }
+a$get_skola('Linköping')
+```
+
+### get_numb: Get the statistics from the kolada with given option
+Input: Mname: The name of the municipality
+op: Option for the statistics. 1: Death number. 2: Net numbers moving residents. 3: Born numbers per 1000 residents. 4: Born numbers.
+```{r }
+a$get_numb('Linköping',2)
+```

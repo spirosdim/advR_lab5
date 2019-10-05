@@ -1,6 +1,6 @@
 Package: lab5
 Type: Package
-Title: What the package does (short line)
+Title: kolada
 Version: 1.0
 Date: 2019-10-01
 Author: Dimitriadis Spyridon, Mengxin Liu
@@ -10,3 +10,5 @@ License: MIT License+ file LICENSE
 RoxygenNote: 6.1.1
 Encoding: UTF-8
 Imports: httr, jsonlite
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
