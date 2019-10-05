@@ -3,10 +3,11 @@ Type: Package
 Title: What the package does (short line)
 Version: 1.0
 Date: 2019-10-01
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does.
+Author: Dimitriadis Spyridon, Mengxin Liu
+Maintainer: <spydi472@student.liu.se>
+Description: This pachage creates a Reference Class to fetch data from kolada's API.
 License: MIT License+ file LICENSE
 RoxygenNote: 6.1.1
 Encoding: UTF-8
 Imports: httr, jsonlite
+VignetteBuilder: knitr
