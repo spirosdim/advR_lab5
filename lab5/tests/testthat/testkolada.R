@@ -52,3 +52,13 @@ test_that("Wrong return value for a specific input from get_skola()", {
                                                                "Ammarnäs skola","Vindelälvsskolan 7-9",
                                                                "Sorsele gymnasieskola"))))
 })
+
+test_that("Wrong return for character type input from get_numb()",{
+  Kobj <- kolada$new()
+  expect_error(Kobj$get_numb('Linköping','Moving numbers'))
+})
+
+test_that("Wrong return for a list input from get_numb()",{
+  Kobj <- kolada$new()
+  expect_error(Kobj$get_numb(c('Linköping','Stockholm'),2))
+})
